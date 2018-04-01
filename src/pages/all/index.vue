@@ -101,13 +101,13 @@
             },
             routerTopicList(content_id){
                 console.log("routerTopicList", content_id)
-               // const targetUrl = "/pages/topic/list/index" + "?content_id=" + content_id;
-                const targetUrl = "/pages/topic/list/index";
+                const targetUrl = "/pages/topic/list/main" + "?content_id=" + content_id;
+                //const targetUrl = "/pages/topic/list/main";
                 console.log("targetUrl",targetUrl.toString())
                 wx.navigateTo({
                     url: targetUrl
                 });
-                //superbridge.openWebview({targetUrl})
+               // superbridge.openWebview(targetUrl.toString())
 
             }
         }

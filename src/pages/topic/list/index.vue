@@ -43,17 +43,23 @@
             return {
                 title: '',
                 desc: '',
-                articles:[],
+                articles: [],
                 content: {},
             }
         },
 
         mounted () {
-            this.getHtmlContent()
+
+        },
+        onLoad: function (options) {
+            // 生命周期函数--监听页面加载
+            const content_id = options.content_id;
+            console.log("onLoad", content_id)
+            this.getHtmlContent(content_id)
         },
         methods: {
-            getHtmlContent: function () {
-                const url = 'http://v3.wufazhuce.com:8000/api/topic/htmlcontent/88';
+            getHtmlContent: function (content_id) {
+                const url = 'http://v3.wufazhuce.com:8000/api/topic/htmlcontent/' + content_id;
                 request.get(url).then(data => {
                     this.content = data.data;
                     this.title = this.content.title;
@@ -67,12 +73,12 @@
                                 if (s2.indexOf('display_category') > -1) {
                                     var split3 = s2.split(";");
                                     var split4 = split3[0].split("var oneDataArticles =");
-                                    console.log("split4",split4.length)
-                                    console.log("split4",split4[1].length)
-                                    console.log("split4",JSON.parse(split4[1].toString()).length)
-                                 //   console.log("split4",JSON.parse(split4[1].toString()))
+                                    console.log("split4", split4.length)
+                                    console.log("split4", split4[1].length)
+                                    console.log("split4", JSON.parse(split4[1].toString()).length)
+                                    //   console.log("split4",JSON.parse(split4[1].toString()))
 
-                                   this.articles = JSON.parse(split4[1].toString());
+                                    this.articles = JSON.parse(split4[1].toString());
                                     //console.log("articles", JSON.stringify(this.articles))
                                 }
                             })
