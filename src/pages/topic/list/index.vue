@@ -3,8 +3,8 @@
         <!--header-->
         <div class="one-special-header-box one-page-header-image">
             <!--<div class="one-image-aspect-box" style="background-image:url(http://image.wufazhuce.com/FrNEUC7Tlv1CH5KzdFEXVYBgyvCL);"></div>-->
-            <img class="one-image-aspect-box"
-                 src="http://image.wufazhuce.com/FrNEUC7Tlv1CH5KzdFEXVYBgyvCL"/>
+          <!--//  <img class="one-image-aspect-box" src="http://image.wufazhuce.com/FrNEUC7Tlv1CH5KzdFEXVYBgyvCL"/>-->
+            <img class="one-image-aspect-box" v-bind:src="cover"/>
             <div class="one-image-aspect-mask"></div>
         </div>
 
@@ -41,6 +41,7 @@
 
         data () {
             return {
+                cover:'',
                 title: '',
                 desc: '',
                 articles: [],
@@ -54,7 +55,9 @@
         onLoad: function (options) {
             // 生命周期函数--监听页面加载
             const content_id = options.content_id;
+            this.cover = options.cover;
             console.log("onLoad", content_id)
+            console.log("cover",  this.cover)
             this.getHtmlContent(content_id)
         },
         methods: {

@@ -18,7 +18,7 @@
         <div class="topic-list">
             <block>
                 <div class="topic" v-for="(topic, index) in topics"
-                     v-on:click="routerTopicList(topic.content_id)">
+                     v-on:click="routerTopicList(topic)">
                     <img v-bind:src="topic.cover" class="slide-image"/>
                     <p class="topic-title">{{topic.title}}</p>
                 </div>
@@ -99,15 +99,16 @@
                     this.requestTopicData()
                 ])
             },
-            routerTopicList(content_id){
-                console.log("routerTopicList", content_id)
-                const targetUrl = "/pages/topic/list/main" + "?content_id=" + content_id;
+            routerTopicList(topic){
+                console.log("routerTopicList", topic)
+                const targetUrl = "/pages/topic/list/main" +
+                    "?content_id=" + topic.content_id + "&cover=" + topic.cover;
                 //const targetUrl = "/pages/topic/list/main";
-                console.log("targetUrl",targetUrl.toString())
+                console.log("targetUrl", targetUrl.toString())
                 wx.navigateTo({
                     url: targetUrl
                 });
-               // superbridge.openWebview(targetUrl.toString())
+                // superbridge.openWebview(targetUrl.toString())
 
             }
         }
