@@ -1,23 +1,23 @@
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml">
-    <div class="content one-page-special-theme1" style="background-color:#D9EFE7;color:#244D83;">
+    <div class="content one-page-special-theme1" v-bind:style="{ 'background-color':bg_color, 'color':font_color}">
         <!--header-->
         <div class="one-special-header-box one-page-header-image">
-            <!--<div class="one-image-aspect-box" style="background-image:url(http://image.wufazhuce.com/FrNEUC7Tlv1CH5KzdFEXVYBgyvCL);"></div>-->
-          <!--//  <img class="one-image-aspect-box" src="http://image.wufazhuce.com/FrNEUC7Tlv1CH5KzdFEXVYBgyvCL"/>-->
             <img class="one-image-aspect-box" v-bind:src="cover"/>
             <div class="one-image-aspect-mask"></div>
         </div>
 
         <!--title-->
-        <div class="one-special-title-box">{{title}}
-            <!--我觉得我爱上了你，也觉得现在应该是春天了-->
-        </div>
-        <div class="one-special-subtitle-box">
-            春天就要来了，遇见你的春天，再也没有你的春天。
-        </div>
+        <div class="one-special-title-box"  v-if="title != ''">{{title}}</div>
+        <div class="one-special-subtitle-box"  v-if="desc != ''">{{desc}}</div>
+        <div class="one-special-content-box"  v-if="content != ''">{{content}}</div>
+
+
         <div content="one-special-card-box">
             <block v-for="article in articles">
                 <p>{{article.content_type}}</p>
+                <essayCard :article="article" v-if="article.content_type == '1'"></essayCard>
+                <questionCard :article="article" v-if="article.content_type == '3'"></questionCard>
+                <!--<musicCard :article="article" v-if="article.content_type == '4'"></musicCard>-->
                 <movieCard :article="article" v-if="article.content_type == '5'"></movieCard>
 
             </block>
@@ -32,25 +32,33 @@
     import superbridge from '@/utils/superbridge'
 
 
+    import essayCard from '@/components/essayCard'
+    import questionCard from '@/components/questionCard'
     import movieCard from '@/components/movieCard'
+    import musicCard from '@/components/musicCard'
 
     export default {
         components: {
-            movieCard
+            movieCard,
+            essayCard,
+            questionCard,
+            musicCard
         },
 
         data () {
             return {
+                bg_color:'',
+                font_color:'',
+                content:'',
                 cover:'',
                 title: '',
                 desc: '',
                 articles: [],
-                content: {},
+                data: {},
             }
         },
 
         mounted () {
-
         },
         onLoad: function (options) {
             // 生命周期函数--监听页面加载
@@ -64,11 +72,22 @@
             getHtmlContent: function (content_id) {
                 const url = 'http://v3.wufazhuce.com:8000/api/topic/htmlcontent/' + content_id;
                 request.get(url).then(data => {
-                    this.content = data.data;
-                    this.title = this.content.title;
-                    this.desc = this.content.share_list.wx.desc;
-                    var split = this.content.html_content.split('/script>');
+                    this.data = data.data;
+                    this.bg_color = this.data.bg_color;
+                    this.font_color = this.data.font_color;
+                    this.title = this.data.title;
                     console.log("getHtmlContent", data.data)
+                    //获取content 如果存在 desc 不赋值~ 就是这么奇怪
+                    var content = this.data.html_content.split('<div class="one-special-content-box">');
+                    var content1 = content[1].split('</div>');
+                    if (content1[0].toString().trim()=== ''){
+                        this.desc = this.data.share_list.wx.desc;
+                    }else {
+                        this.content = content1[0]
+                        this.desc = '';
+                    }
+                    //从HTML获取数据 也是没办法的事情...
+                    var split = this.data.html_content.split('/script>');
                     split.forEach(s => {
                         if (s.indexOf('<script type="text/javascript">') > -1) {
                             var split2 = s.split('<script type="text/javascript">');
@@ -87,8 +106,6 @@
                             })
                         }
                     })
-                    // this.html = data.data.html_content;
-                    // console.log("Content", data.data.html_content)
                 })
 
             },
@@ -98,7 +115,7 @@
 
 <style>
     .content {
-        background: #eeeeee;
+        /*background: #eeeeee;*/
         padding-bottom: 20px;
     }
 
@@ -131,14 +148,12 @@
         line-height: 20px;
         padding: 0 15px;
     }
-
-    .one-page-special-theme1 .one-special-card-box {
-        position: relative;
-        background-color: white;
+    .one-page-special-theme1 .one-special-content-box {
+        font-size: 16px;
         margin-top: 20px;
-        border: 0.5px solid #D8D8D8;
-        color: black;
-        border-radius: 2px;
+        margin-bottom: 20px;
+        padding: 0 15px;
     }
+
 
 </style>

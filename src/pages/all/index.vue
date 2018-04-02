@@ -60,10 +60,12 @@
         mounted () {
             console.log("mounted")
             this.refresh()
+            this.isLoading = true;
         },
         onPullDownRefresh () {
             // 页面相关事件处理函数--监听用户下拉动作
             console.log("onPullDownRefresh")
+            this.isLoading = true;
             this.isLoading = true;
             this.refresh()
         },
@@ -84,6 +86,7 @@
                     console.log("requestTopicData", data.data)
                     this.topics = this.topics.concat(data.data);
                     this.isLoadMore = false;
+                    this.isLoading = false;
                 })
             },
             requestBannerData: function () {
@@ -94,6 +97,7 @@
                 })
             },
             async refresh () {
+                this.topics.splice(0, this.topics.length);
                 await Promise.all([
                     this.requestBannerData(),
                     this.requestTopicData()
@@ -123,7 +127,8 @@
     }
 
     .swiper {
-        height: 420 rpx;
+        /*//height: 420 rpx;*/
+        height: 210px;
         width: 100%;
     }
 
