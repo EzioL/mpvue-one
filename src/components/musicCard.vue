@@ -25,8 +25,8 @@
             </div>
         </div>
 
-        <div class="one-special-card-title">{{article.title}}</div>
-        <div class="one-special-card-desc">{{article.forward}}</div>
+        <div class="one-special-card-music-title">{{article.title}}</div>
+        <div class="one-special-card-music-desc">{{article.forward}}</div>
 
         <div class="one-special-card-bottom-bar">
             <div class="one-special-card-bottom-author-name">{{article.author.user_name}}</div>
@@ -149,21 +149,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .one-special-card-title {
+    .one-special-card-music-title {
         margin-top: 20px;
         margin-left: 20px;
         margin-right: 20px;
@@ -171,7 +157,7 @@
         line-height: 30px;
     }
 
-    .one-special-card-desc {
+    .one-special-card-music-desc {
         margin-top: 10px;
         margin-left: 20px;
         margin-right: 20px;

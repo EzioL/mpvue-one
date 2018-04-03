@@ -13,11 +13,11 @@
             <!--<div class="one-special-card-movie-bar-bg">-->
             <!--<div class="one-special-card-movie-bar-stripe"></div>-->
             <!--</div>-->
-            <div class="one-special-card-title">{{article.title}}</div>
+            <div class="one-special-card-essay-title">{{article.title}}</div>
         </div>
 
 
-        <div class="one-special-card-desc">{{article.forward}}</div>
+        <div class="one-special-card-essay-desc">{{article.forward}}</div>
 
         <div class="one-special-card-bottom-bar">
             <div class="one-special-card-bottom-author-name">{{article.author.user_name}}</div>
@@ -91,16 +91,18 @@
         background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, .20) 0%, rgba(0, 0, 0, .50) 100%);
     }
 
-    .one-special-card-title {
+    .one-special-card-essay-title {
         position: absolute;
         z-index: 6;
         bottom: 20px;
         left: 0px;
         right: 0px;
+        margin-left: 20px;
+        margin-right: 20px;
         color: white;
     }
 
-    .one-special-card-desc {
+    .one-special-card-essay-desc {
         margin-top: 10px;
         margin-left: 20px;
         margin-right: 20px;

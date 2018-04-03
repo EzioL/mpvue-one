@@ -3,11 +3,11 @@
         <div class="one-special-card-background">
             <div class="one-special-card-background-image" :style="{'background-image':'url('+article.img_url+')'}"></div>
             <div class="one-special-card-background-mask"></div>
-            <div class="one-special-card-title">{{article.title}}</div>
+            <div class="one-special-card-question-title">{{article.title}}</div>
         </div>
 
 
-        <div class="one-special-card-desc">{{article.forward}}</div>
+        <div class="one-special-card-question-desc">{{article.forward}}</div>
 
         <div class="one-special-card-bottom-bar">
             <div class="one-special-card-bottom-author-name">{{article.author.user_name}}</div>
@@ -81,16 +81,18 @@
         background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, .20) 0%, rgba(0, 0, 0, .50) 100%);
     }
 
-    .one-special-card-title {
+    .one-special-card-question-title {
         position: absolute;
         z-index: 6;
         bottom: 20px;
         left: 0px;
         right: 0px;
         color: white;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
-    .one-special-card-desc {
+    .one-special-card-question-desc {
         margin-top: 10px;
         margin-left: 20px;
         margin-right: 20px;

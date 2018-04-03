@@ -13,6 +13,7 @@
   "dependencies": {
     "flyio": "^0.4.5",
     "mpvue": "^1.0.6",
+    "mpvue-wxparse": "^0.4.8",
     "vuex": "^2.3.1",
     "wx": "0.0.36"
   },

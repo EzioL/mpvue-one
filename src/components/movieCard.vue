@@ -1,5 +1,5 @@
-<template xmlns:v-bind="http://www.w3.org/1999/xhtml">
-    <div class="one-special-card-box">
+<template>
+    <div class="one-special-card-box" >
         <div class="one-special-card-background">
             <div class="one-special-card-background-image"
                  :style="{'background-image':'url('+article.img_url+')'}"></div>
@@ -15,8 +15,8 @@
             </div>
         </div>
 
-        <div class="one-special-card-title">{{article.title}}</div>
-        <div class="one-special-card-desc">{{article.forward}}</div>
+        <div class="one-special-card-movie-title">{{article.title}}</div>
+        <div class="one-special-card-movie-desc">{{article.forward}}</div>
 
         <div class="one-special-card-bottom-bar">
             <div class="one-special-card-bottom-author-name">{{article.author.user_name}}</div>
@@ -129,15 +129,16 @@
         background-image: linear-gradient(90deg, transparent 75%, rgba(255, 255, 255, .5) 25%);
     }
 
-    .one-special-card-title {
+    .one-special-card-movie-title {
         margin-top: 20px;
         margin-left: 20px;
         margin-right: 20px;
         font-size: 20px;
         line-height: 30px;
+      /*//  color: black;*/
     }
 
-    .one-special-card-desc {
+    .one-special-card-movie-desc {
         margin-top: 10px;
         margin-left: 20px;
         margin-right: 20px;
