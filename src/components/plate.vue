@@ -16,8 +16,9 @@ export default {
 
 <style>
   .content{
-    background-color: white;
-    margin-bottom: 16px;
+    /*background-color: white;*/
+    background-color: blueviolet;
+    /*margin-bottom: 16px;*/
   }
   .plate-img{
     width: 100%;

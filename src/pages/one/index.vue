@@ -74,7 +74,8 @@
 
 <style>
     .content {
-        background-color: #eeeeee;
+        /*background-color: #eeeeee;*/
+      background-color: red;
     }
 
     .panel-head {
