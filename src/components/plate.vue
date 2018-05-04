@@ -1,5 +1,5 @@
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml">
-  <div class="content">
+  <div>
     <img v-bind:src="plate.img_url" class="plate-img"/>
     <div class="plate-pic">{{plate.title}}|{{plate.pic_info}}</div>
     <div class="plate-forward">{{plate.forward}}</div>
@@ -15,11 +15,6 @@ export default {
 </script>
 
 <style>
-  .content{
-    /*background-color: white;*/
-    background-color: blueviolet;
-    /*margin-bottom: 16px;*/
-  }
   .plate-img{
     width: 100%;
   }
