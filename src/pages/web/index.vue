@@ -15,9 +15,14 @@
 
     data() {
       return {
-        url: 'http://m.wufazhuce.com/movie/' + 1273
+        url: ""
       }
-    },
+    },onLoad: function (options) {
+      // 生命周期函数--监听页面加载
+      this.url = options.url;
+      console.log("onLoad",  options.url);
+
+    }
   }
 </script>
 

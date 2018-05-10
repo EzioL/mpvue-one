@@ -12,8 +12,7 @@ export default {
     config: {
         // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
         pages: [
-            // '^pages/web/main',
-             '^pages/test/main',
+             '^pages/home/main',
 
              //'^pages/all/main',
             //'^pages/topic/movie/main',
@@ -26,12 +25,12 @@ export default {
         },
         tabBar: {
             color: "#3c414a",
-            selectedColor: "#ff2661",
+            selectedColor: "#000",
             backgroundColor: "#ffffff",
             borderStyle: "black",
             list: [
                 {
-                    pagePath: "pages/one/main",
+                    pagePath: "pages/home/main",
                     iconPath: "static/assets/one_line.png",
                     selectedIconPath: "static/assets/one_fill.png"
                 },
