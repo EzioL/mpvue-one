@@ -6,6 +6,6 @@ app.$mount()
 
 export default {
   config: {
-    navigationBarTitleText: '独唱团'
+    navigationBarTitleText: '独唱团Lite', enablePullDownRefresh: false, disableScroll: true
   }
 }

@@ -101,7 +101,8 @@
           this.isLoading = false;
         })
 
-      }, routerDetail(article) {
+      },
+      routerDetail(article) {
         // console.log("routerDetail", article)
         // const suffix = "?item_id=" + article.item_id;
         // var targetUrl = '';
