@@ -1,6 +1,6 @@
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div class="content">
-    <loading v-show="isLoading">数据加载中</loading>
+    <!--<loading v-show="isLoading">数据加载中</loading>-->
 
     <!--上拉刷新-->
     <!--<div class="load-more" v-show="isRefresh">-->
@@ -8,9 +8,21 @@
     <!--</div>-->
     <!--轮播图-->
 
-    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500">
-      <swiper-item v-for="(item, index) in banner">
-        <img v-bind:src="item.cover" class="slide-image" mode="aspectFill"/>
+    <!--<swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500">-->
+      <!--<swiper-item v-for="(item, index) in banner">-->
+        <!--<img v-bind:src="item.cover" class="slide-image" mode="aspectFill"/>-->
+      <!--</swiper-item>-->
+    <!--</swiper>-->
+
+    <swiper class="swiper" indicator-dots="true">
+      <swiper-item v-for="(n, index) in 1">
+        <scroll-view scroll-y:true>
+          <div  v-for="(m, indexm) in 60">
+            {{m}}
+          </div>
+
+
+        </scroll-view>
       </swiper-item>
     </swiper>
 

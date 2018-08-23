@@ -39,7 +39,7 @@
 
     data() {
       return {
-        firstRequestUrl: " https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p30",
+        firstRequestUrl: "https://api.qingmang.me/v2/article.list?token=c400a7e21688496ca3e7f17c6b0d1846&category_id=p2693",
         nextRequestUrl: "",
         articles: [],
         isRefresh: true,

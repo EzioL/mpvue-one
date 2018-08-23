@@ -30,19 +30,24 @@ export default {
             borderStyle: "black",
             list: [
                 {
-                    pagePath: "pages/one/main",
-                    iconPath: "static/assets/one_line.png",
-                    selectedIconPath: "static/assets/one_fill.png"
+                    pagePath: "pages/home/main",
+                    iconPath: "static/assets/home_line.png",
+                    selectedIconPath: "static/assets/home_fill.png"
+                },
+               {
+                    pagePath: "pages/essay/main",
+                    iconPath: "static/assets/essay_line.png",
+                    selectedIconPath: "static/assets/essay_fill.png"
+               },
+                {
+                    pagePath: "pages/music/main",
+                    iconPath: "static/assets/music_line.png",
+                    selectedIconPath: "static/assets/music_fill.png"
                 },
                 {
-                    pagePath: "pages/all/main",
-                    iconPath: "static/assets/all_line.png",
-                    selectedIconPath: "static/assets/all_fill.png"
-                },
-                {
-                    pagePath: "pages/me/main",
-                    iconPath: "static/assets/me_line.png",
-                    selectedIconPath: "static/assets/me_fill.png"
+                    pagePath: "pages/movie/main",
+                    iconPath: "static/assets/movie_line.png",
+                    selectedIconPath: "static/assets/movie_fill.png"
                 }
             ],
             position: "bottom"

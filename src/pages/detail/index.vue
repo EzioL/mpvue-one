@@ -1,5 +1,6 @@
 <template xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div class="content">
+    <loading v-show="isLoading">数据加载中</loading>
 
 
     <!-- 文章标题 -->
@@ -22,6 +23,32 @@
             </block>
           </view>
         </block>
+
+        <!-- 图片 -->
+        <block v-else-if="paragraph.type == 1">
+          <!--<text>{{paragraph.image.width}}</text>-->
+          <!--<text>{{paragraph.image.height}}</text>-->
+          <!-- 根据图片尺寸来做渲染 -->
+          <view class="paragraph__image">
+            <image v-if=" paragraph.image.width >= 750 " v-bind:src="paragraph.image.source"
+                   :style="{'width': '100vw','height': paragraph.image.height +'rpx'}"
+                   mode="aspectFill"/>
+
+            <!--<image v-else-if="paragraph.image.width > 0 "-->
+                   <!--v-bind:src="paragraph.image.source"-->
+                   <!--mode="aspectFill"-->
+                   <!--:style=" {'width': paragraph.image.width + 'rpx','height': paragraph.image.height + 'rpx'}"/>-->
+
+            <image v-else v-bind:src="paragraph.image.source"
+                   :style="{width: '100vw'}" mode="widthFix"/>
+
+          </view>
+          <!-- 如果图片有标题，展示 -->
+          <view v-if="paragraph.image.title != undefined" class="image__title">
+            {{paragraph.image.title}}
+          </view>
+        </block>
+
       </div>
 
     </view>
@@ -43,7 +70,7 @@
     data() {
       return {
 
-        article: '', articleId: '', content: [], isRefresh: true, isLoading: false, isLoadMore: false
+        article: '', articleId: '', content: [], isRefresh: true, isLoading: false,
       }
     }, onLoad: function (options) {
       this.articleId = options.articleId;
@@ -141,7 +168,6 @@
           this.content = articleContent;
           console.debug(articleContent)
 
-          this.isLoadMore = false;
           this.isLoading = false;
         })
 

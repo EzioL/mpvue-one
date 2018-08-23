@@ -1,7 +1,16 @@
 <template>
   <div class="card-box" v-on:click="routerDetail(article)">
     <img class="card-background-image" v-bind:src="article.covers[0].originalUrl"
-         v-if="article.templateType == 'image'"/>
+         v-if="article.templateType == 'image' ||article.templateType == 'music'  "/>
+
+    <!--<img-->
+      <!--class="card-background-image"-->
+      <!--:style="{'height':article.covers[0].height+'rpx'}"-->
+      <!--v-bind:src="article.covers[0].originalUrl"-->
+
+      <!--v-if="article.templateType == 'image' ||article.templateType == 'music'  "/>-->
+
+
     <text class="card-article-title">{{article.title}}</text>
     <div class="card-article-snippet">{{article.snippet}}</div>
     <div class="card-article-leftTime">{{leftTime}}</div>
@@ -102,6 +111,7 @@
     background-size: cover;
     color: white;
     border-radius: 8px;
+    width: 100%;
     background-repeat: no-repeat;
   }
 
